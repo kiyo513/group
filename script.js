@@ -146,14 +146,6 @@ function showResult(groups){
 
         html+=`<div class="summary">人数：${g.members.length}</div>`;
 
-        const attrs=[];
-
-        Object.keys(g.attrCount).forEach(a=>{
-            attrs.push(`${a}:${g.attrCount[a]}`);
-        });
-
-        html+=`<div class="summary">${attrs.join(" / ")}</div>`;
-
         div.innerHTML=html;
 
         result.appendChild(div);
