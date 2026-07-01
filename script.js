@@ -140,7 +140,7 @@ function showResult(groups){
 
         g.members.forEach(m=>{
 
-            html+=`<div class="member">${m.name}（${m.attr}）</div>`;
+            html+=`<div class="member">${m.name}</div>`;
 
         });
 
@@ -173,3 +173,40 @@ function shuffle(array){
     }
 
 }
+
+document.getElementById("defaultBtn").onclick = async () => {
+
+    try{
+
+        const response = await fetch("default.csv");
+
+        if(!response.ok){
+            throw new Error();
+        }
+
+        const text = await response.text();
+
+        members.length = 0;
+
+        text.split(/\r?\n/).forEach(line=>{
+
+            if(line.trim()==="") return;
+
+            const cols=line.split(",");
+
+            members.push({
+                name: cols[0].trim(),
+                attr: (cols[1]||"").trim()
+            });
+
+        });
+
+        refreshList();
+
+    }catch(e){
+
+        alert("default.csv を読み込めませんでした。");
+
+    }
+
+};
