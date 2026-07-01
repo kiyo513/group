@@ -72,3 +72,19 @@ ul{
 .buttonRow button{
     flex:1;
 }
+
+#result{
+    display:grid;
+    gap:12px;
+    grid-template-columns:1fr;
+}
+
+@media (min-width:600px){
+    #result.two{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    #result.three{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
