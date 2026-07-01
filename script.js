@@ -126,9 +126,17 @@ document.getElementById("divideBtn").onclick=()=>{
 
 function showResult(groups){
 
-    const result=document.getElementById("result");
+    const result = document.getElementById("result");
 
-    result.innerHTML="";
+    result.innerHTML = "";
+
+    result.className = "";
+
+    if(groups.length == 2){
+        result.classList.add("two");
+    }else if(groups.length >= 3){
+        result.classList.add("three");
+    }
 
     groups.forEach((g,index)=>{
 
