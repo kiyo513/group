@@ -64,3 +64,11 @@ ul{
     font-size:13px;
     color:#555;
 }
+.buttonRow{
+    display:flex;
+    gap:10px;
+}
+
+.buttonRow button{
+    flex:1;
+}
